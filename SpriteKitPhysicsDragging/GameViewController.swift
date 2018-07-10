@@ -2,7 +2,7 @@
 //  GameViewController.swift
 //  SpriteKitPhysicsDragging
 //
-//  Created by Renton Thurston on 2018/07/10.
+//  Created by ShinryakuTako@InvadingOctopus.io on 2018/07/10.
 //  Copyright © 2018 Invading Octopus. All rights reserved.
 //
 
@@ -15,25 +15,25 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
+        guard let view = self.view as? SKView else {
+            fatalError("Cannot setup SKView.")
         }
+        
+        let scene = GameScene(size: view.frame.size)
+        
+        // Set the scale mode to scale to fit the window
+        scene.scaleMode = .aspectFill
+        
+        // Present the scene
+        view.presentScene(scene)
+        
+        // Debugging aids
+        view.ignoresSiblingOrder = true
+        view.showsPhysics = true
     }
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -47,4 +47,9 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+
 }

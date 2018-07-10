@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SpriteKitPhysicsDragging
 //
-//  Created by Renton Thurston on 2018/07/10.
+//  Created by ShinryakuTako@InvadingOctopus.io on 2018/07/10.
 //  Copyright © 2018 Invading Octopus. All rights reserved.
 //
 
